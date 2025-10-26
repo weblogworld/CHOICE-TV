@@ -3,97 +3,249 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Choice TV - Live Channels</title>
+  <title>Choice TV - Global Free Channels & Live Football</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
 
+  <!-- Header -->
   <header class="bg-indigo-600 text-white p-4">
     <h1 class="text-3xl font-bold">Choice TV</h1>
-    <p class="text-sm">Your gateway to free live TV and radio channels.</p>
+    <p class="text-sm">Free public TV channels worldwide – news, movies, sports, kids, gospel & live football with dynamic updates.</p>
   </header>
 
-  <main class="p-4">
-    <section class="mb-8">
-      <h2 class="text-2xl font-semibold text-indigo-600">📺 Live TV Channels</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-        <!-- Free Speech TV -->
+  <main class="p-4 space-y-12">
+
+    <!-- News Channels -->
+    <section>
+      <h2 class="text-2xl font-semibold text-indigo-600 mb-4">📰 News Channels</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-          <iframe src="https://freespeech.org/live-tv" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://www.france24.com/en/live" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
           <div class="p-4">
-            <h3 class="font-semibold">Free Speech TV</h3>
-            <p class="text-sm text-gray-700">Progressive news and opinion network.</p>
+            <h3 class="font-semibold">France 24</h3>
           </div>
         </div>
-        <!-- BBC iPlayer -->
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-          <iframe src="https://www.bbc.co.uk/iplayer" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-          <div class="p-4">
-            <h3 class="font-semibold">BBC iPlayer</h3>
-            <p class="text-sm text-gray-700">UK's official streaming platform.</p>
-          </div>
+          <iframe src="https://www.aljazeera.com/live" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">Al Jazeera English</h3></div>
         </div>
-        <!-- The Roku Channel -->
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-          <iframe src="https://www.roku.com/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-          <div class="p-4">
-            <h3 class="font-semibold">The Roku Channel</h3>
-            <p class="text-sm text-gray-700">Free ad-supported streaming TV.</p>
-          </div>
+          <iframe src="https://www.dw.com/en/media-center/live-tv" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">DW English</h3></div>
         </div>
-        <!-- M4 Sport -->
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-          <iframe src="https://www.mediaklikk.hu/m4/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-          <div class="p-4">
-            <h3 class="font-semibold">M4 Sport</h3>
-            <p class="text-sm text-gray-700">Hungarian sports channel.</p>
-          </div>
+          <iframe src="https://www3.nhk.or.jp/nhkworld/en/live/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">NHK World-Japan</h3></div>
         </div>
       </div>
     </section>
 
+    <!-- Movie & Entertainment Channels -->
     <section>
-      <h2 class="text-2xl font-semibold text-indigo-600">📻 Live Radio Stations</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-        <!-- iHeartRadio -->
+      <h2 class="text-2xl font-semibold text-indigo-600 mb-4">🎬 Movies & Entertainment</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-          <iframe src="https://www.iheart.com/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-          <div class="p-4">
-            <h3 class="font-semibold">iHeartRadio</h3>
-            <p class="text-sm text-gray-700">Live radio stations and podcasts.</p>
-          </div>
+          <iframe src="https://irokotv.com/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">IrokoTV</h3></div>
         </div>
-        <!-- TuneIn Radio -->
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-          <iframe src="https://tunein.com/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-          <div class="p-4">
-            <h3 class="font-semibold">TuneIn Radio</h3>
-            <p class="text-sm text-gray-700">Thousands of live AM and FM radio stations.</p>
-          </div>
+          <iframe src="https://tubitv.com/movies" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">Tubi Movies</h3></div>
         </div>
-        <!-- SHOUTcast -->
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-          <iframe src="https://www.shoutcast.com/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-          <div class="p-4">
-            <h3 class="font-semibold">SHOUTcast</h3>
-            <p class="text-sm text-gray-700">Internet radio streaming platform.</p>
-          </div>
-        </div>
-        <!-- Elfsight Radio Player -->
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-          <iframe src="https://elfsight.com/radio-player-widget/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-          <div class="p-4">
-            <h3 class="font-semibold">Elfsight Radio Player</h3>
-            <p class="text-sm text-gray-700">Customizable radio player widget.</p>
-          </div>
+          <iframe src="https://pluto.tv/live-tv/movies" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">Pluto TV</h3></div>
         </div>
       </div>
     </section>
+
+    <!-- Sports Channels -->
+    <section>
+      <h2 class="text-2xl font-semibold text-indigo-600 mb-4">🏟 Sports Channels</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="http://tv.cctv.com/cctv5/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">CCTV-5</h3></div>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www.trtspor.com.tr/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">TRT Spor</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kids Channels -->
+    <section>
+      <h2 class="text-2xl font-semibold text-indigo-600 mb-4">👶 Kids Channels</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://pbskids.org/videos/watch/live" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">PBS KIDS</h3></div>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://tv.cctv.com/live/cctvchild/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">CCTV-14 (Kids)</h3></div>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www.trtcocuk.net.tr/canli-yayin" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">TRT Çocuk</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gospel / Religious Channels -->
+    <section>
+      <h2 class="text-2xl font-semibold text-indigo-600 mb-4">🙏 Gospel & Religious Channels</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www.tbn.org/watch" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">TBN</h3></div>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www.daystar.com/watch/live" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">Daystar</h3></div>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www1.cbn.com/tv/online" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4"><h3 class="font-semibold">CBN</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Football Section -->
+    <section>
+      <h2 class="text-2xl font-semibold text-indigo-600 mb-4">⚽ Live Football Matches</h2>
+      <div id="match-schedule" class="space-y-4 max-w-4xl mx-auto">
+        <p>Loading matches...</p>
+      </div>
+    </section>
+
   </main>
 
   <footer class="bg-indigo-600 text-white p-4 text-center">
     <p>&copy; 2025 Choice TV. All rights reserved.</p>
   </footer>
+
+  <script>
+    const apiKey = "YOUR_API_KEY"; // Replace with Football-Data.org API key
+    const scheduleDiv = document.getElementById("match-schedule");
+    const lastGoals = {};
+
+    async function fetchMatches() {
+      try {
+        const res = await fetch("https://api.football-data.org/v4/competitions/PL/matches", {
+          headers: { "X-Auth-Token": apiKey }
+        });
+        const data = await res.json();
+        scheduleDiv.innerHTML = "";
+
+        const liveMatches = data.matches.filter(m => m.status === "LIVE");
+        const upcomingMatches = data.matches.filter(m => m.status === "SCHEDULED");
+
+        // Live Matches
+        if (liveMatches.length > 0) {
+          const liveHeader = document.createElement("h3");
+          liveHeader.className = "text-xl font-bold text-red-600";
+          liveHeader.textContent = "🔥 Live Matches";
+          scheduleDiv.appendChild(liveHeader);
+
+          liveMatches.forEach(match => {
+            const div = document.createElement("div");
+            div.className = "flex items-center justify-between bg-red-50 p-4 rounded-lg shadow relative";
+
+            // Home Team
+            const home = document.createElement("div");
+            home.className = "flex items-center space-x-2";
+            const homeLogo = document.createElement("img");
+            homeLogo.src = match.homeTeam.crest || "https://via.placeholder.com/40";
+            homeLogo.className = "w-10 h-10";
+            const homeName = document.createElement("span");
+            homeName.textContent = match.homeTeam.name;
+            home.appendChild(homeLogo);
+            home.appendChild(homeName);
+
+            // Score & Timer
+            const scoreDiv = document.createElement("div");
+            scoreDiv.className = "flex flex-col items-center";
+            const homeScore = match.score.fullTime.home ?? 0;
+            const awayScore = match.score.fullTime.away ?? 0;
+            const score = document.createElement("span");
+            score.className = "font-bold text-lg";
+            score.textContent = `${homeScore} - ${awayScore}`;
+
+            // Timer
+            const timer = document.createElement("span");
+            timer.className = "text-sm text-red-700 font-semibold";
+            const matchDate = new Date(match.utcDate);
+            const now = new Date();
+            const minutes = Math.max(0, Math.floor((now - matchDate) / 60000));
+            timer.textContent = `LIVE ${minutes}'`;
+
+            scoreDiv.appendChild(score);
+            scoreDiv.appendChild(timer);
+
+            // Away Team
+            const away = document.createElement("div");
+            away.className = "flex items-center space-x-2";
+            const awayName = document.createElement("span");
+            awayName.textContent = match.awayTeam.name;
+            const awayLogo = document.createElement("img");
+            awayLogo.src = match.awayTeam.crest || "https://via.placeholder.com/40";
+            awayLogo.className = "w-10 h-10";
+            away.appendChild(awayName);
+            away.appendChild(awayLogo);
+
+            div.appendChild(home);
+            div.appendChild(scoreDiv);
+            div.appendChild(away);
+
+            scheduleDiv.appendChild(div);
+
+            // Goal Notification
+            const key = match.id;
+            if (lastGoals[key] === undefined) lastGoals[key] = homeScore + awayScore;
+            const totalScore = homeScore + awayScore;
+            if (totalScore > lastGoals[key]) {
+              showGoalNotification(`${match.homeTeam.name} ${homeScore} - ${awayScore} ${match.awayTeam.name}`);
+              lastGoals[key] = totalScore;
+            }
+          });
+        }
+
+        // Upcoming Matches
+        if (upcomingMatches.length > 0) {
+          const upcomingHeader = document.createElement("h3");
+          upcomingHeader.className = "text-xl font-bold text-indigo-600 mt-4";
+          upcomingHeader.textContent = "⏰ Upcoming Matches";
+          scheduleDiv.appendChild(upcomingHeader);
+
+          upcomingMatches.slice(0,10).forEach(match => {
+            const div = document.createElement("div");
+            div.className = "flex justify-between bg-white p-4 rounded-lg shadow";
+            const date = new Date(match.utcDate).toLocaleString();
+            div.textContent = `${match.homeTeam.name} vs ${match.awayTeam.name} – ${date}`;
+            scheduleDiv.appendChild(div);
+          });
+        }
+
+      } catch (err) {
+        scheduleDiv.innerHTML = "<p>Unable to load matches at the moment.</p>";
+        console.error(err);
+      }
+    }
+
+    function showGoalNotification(message) {
+      const notif = document.createElement("div");
+      notif.textContent = `⚽ Goal! ${message}`;
+      notif.className = "fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg z-50 animate-bounce";
+      document.body.appendChild(notif);
+      setTimeout(() => notif.remove(), 5000);
+    }
+
+    fetchMatches();
+    setInterval(fetchMatches, 30000); // Refresh matches every 30 seconds
+  </script>
 
 </body>
 </html>
