@@ -1,566 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Choice TV — Live</title>
-  <style>
-    /* Minimal styling — keeps layout similar to original but fresh */
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin: 0; padding: 12px; background: #f7f7fb; color: #111; }
-    header { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
-    video { width: 100%; max-width: 720px; background: #000; border-radius: 8px; }
-    #controls { margin-top: 8px; display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-    button { padding:8px 12px; border: none; border-radius:6px; cursor: pointer; background: #0b74de; color: white; }
-    button.secondary { background: #666; }
-    #liveStatus { margin-left: 8px; font-weight:600; }
-    #liveControls { margin-top: 8px; display:none; gap:10px; }
-    #chat { margin-top:12px; max-width: 720px; }
-    #messages { border-radius:8px; background:#fff; padding:8px; min-height:120px; max-height:300px; overflow:auto; border:1px solid #ddd; }
-    #chatInput { display:flex; gap:8px; margin-top:8px; }
-    #auth { margin-left:auto; display:flex; gap:8px; align-items:center; }
-    .hidden { display:none !important; }
-    .badge { background:#ff4d4f; color:white; padding:2px 6px; border-radius:999px; font-size:12px; }
-    .row { display:flex; gap:8px; align-items:center; }
-    input[type="text"], input[type="email"], input[type="password"] { padding:8px; border-radius:6px; border:1px solid #ddd; }
-    #viewerCount { font-weight:700; }
-    .small { font-size:13px; color:#555; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choice TV - Live Channels</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>CHOICE TV — Live</h1>
-    <div id="auth">
-      <span id="userEmail" class="small hidden"></span>
-      <button id="btnSignIn">Broadcaster Sign In</button>
-      <button id="btnSignOut" class="hidden secondary">Sign Out</button>
-    </div>
+<body class="bg-gray-100">
+
+  <header class="bg-indigo-600 text-white p-4">
+    <h1 class="text-3xl font-bold">Choice TV</h1>
+    <p class="text-sm">Your gateway to free live TV and radio channels.</p>
   </header>
 
-  <main>
-    <video id="localPreview" autoplay playsinline muted></video>
-
-    <div id="controls">
-      <button id="btnGoLive">Go Live</button>
-      <button id="btnStopLive" style="display:none">Stop Live</button>
-
-      <div id="liveControls" style="display:none">
-        <a id="shareTwitter" href="#" target="_blank">Share Twitter</a>
-        <a id="shareFacebook" href="#" target="_blank">Share Facebook</a>
-        <a id="shareWhatsapp" href="#" target="_blank">Share WhatsApp</a>
-        <a id="shareCopy" href="#" data-clipboard>Copy Link</a>
+  <main class="p-4">
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-indigo-600">📺 Live TV Channels</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+        <!-- Free Speech TV -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://freespeech.org/live-tv" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4">
+            <h3 class="font-semibold">Free Speech TV</h3>
+            <p class="text-sm text-gray-700">Progressive news and opinion network.</p>
+          </div>
+        </div>
+        <!-- BBC iPlayer -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www.bbc.co.uk/iplayer" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4">
+            <h3 class="font-semibold">BBC iPlayer</h3>
+            <p class="text-sm text-gray-700">UK's official streaming platform.</p>
+          </div>
+        </div>
+        <!-- The Roku Channel -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www.roku.com/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4">
+            <h3 class="font-semibold">The Roku Channel</h3>
+            <p class="text-sm text-gray-700">Free ad-supported streaming TV.</p>
+          </div>
+        </div>
+        <!-- M4 Sport -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www.mediaklikk.hu/m4/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4">
+            <h3 class="font-semibold">M4 Sport</h3>
+            <p class="text-sm text-gray-700">Hungarian sports channel.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="row">
-        <div id="liveStatus" class="small">Offline</div>
-        <div id="viewerCount" class="small">Viewers: 0</div>
-      </div>
-    </div>
-
-    <section id="chat">
-      <h3>Live Chat</h3>
-      <div id="messages">No messages yet</div>
-      <div id="chatInput">
-        <input id="msgText" placeholder="Write a message..." type="text" />
-        <button id="sendMsg">Send</button>
+    <section>
+      <h2 class="text-2xl font-semibold text-indigo-600">📻 Live Radio Stations</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+        <!-- iHeartRadio -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www.iheart.com/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4">
+            <h3 class="font-semibold">iHeartRadio</h3>
+            <p class="text-sm text-gray-700">Live radio stations and podcasts.</p>
+          </div>
+        </div>
+        <!-- TuneIn Radio -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://tunein.com/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4">
+            <h3 class="font-semibold">TuneIn Radio</h3>
+            <p class="text-sm text-gray-700">Thousands of live AM and FM radio stations.</p>
+          </div>
+        </div>
+        <!-- SHOUTcast -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://www.shoutcast.com/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4">
+            <h3 class="font-semibold">SHOUTcast</h3>
+            <p class="text-sm text-gray-700">Internet radio streaming platform.</p>
+          </div>
+        </div>
+        <!-- Elfsight Radio Player -->
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <iframe src="https://elfsight.com/radio-player-widget/" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+          <div class="p-4">
+            <h3 class="font-semibold">Elfsight Radio Player</h3>
+            <p class="text-sm text-gray-700">Customizable radio player widget.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- Authentication modal / inline prompt (keeps page HTML) -->
-  <div id="authModal" class="hidden" style="position:fixed; left:0; top:0; right:0; bottom:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.45);">
-    <div style="width:320px; background:white; padding:16px; border-radius:8px;">
-      <h3>Broadcaster Sign In</h3>
-      <div style="display:flex; flex-direction:column; gap:8px;">
-        <input id="authEmail" type="email" placeholder="Email" />
-        <input id="authPassword" type="password" placeholder="Password" />
-        <div style="display:flex; gap:8px; justify-content:flex-end;">
-          <button id="authCancel" class="secondary">Cancel</button>
-          <button id="authSubmit">Sign In / Create</button>
-        </div>
-      </div>
-      <p class="small" style="margin-top:8px;">Tip: This simple flow creates a new email/password user if the email doesn't exist.</p>
-    </div>
-  </div>
+  <footer class="bg-indigo-600 text-white p-4 text-center">
+    <p>&copy; 2025 Choice TV. All rights reserved.</p>
+  </footer>
 
-  <script type="module">
-  /*************************************************************************
-   * Modernized single-file script
-   * - Firebase modular SDK (Auth, Firestore, Storage, Analytics)
-   * - Uses your provided firebaseConfig (keeps same keys)
-   * - Adds: auth for broadcaster, chat, viewer count, automatic upload of recordings
-   *
-   * Important: For real production, configure Firebase security rules!
-   *************************************************************************/
-
-  // --- Firebase imports (modular) ---
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
-  import {
-    getAuth,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged,
-    signInAnonymously
-  } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-  import {
-    getFirestore,
-    doc,
-    collection,
-    addDoc,
-    setDoc,
-    getDoc,
-    updateDoc,
-    serverTimestamp,
-    onSnapshot,
-    query,
-    orderBy,
-    limit,
-    runTransaction
-  } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
-  import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js";
-
-  // ---------------------------
-  // Use the firebaseConfig you provided (keeps keys as-is)
-  // ---------------------------
-  const firebaseConfig = {
-    apiKey: "AIzaSyDATaOG9u7sIKVzT0BxQH5ZWDHvWMM2WSk",
-    authDomain: "innovative-world-of-congress.firebaseapp.com",
-    projectId: "innovative-world-of-congress",
-    storageBucket: "innovative-world-of-congress.firebasestorage.app",
-    messagingSenderId: "728669966037",
-    appId: "1:728669966037:web:29ca98a80380c78eb39c5c",
-    measurementId: "G-FCK8BJ3D1C"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-  const storage = getStorage(app);
-
-  // --- DOM references (kept same IDs) ---
-  const localPreview = document.getElementById('localPreview');
-  const btnGoLive = document.getElementById('btnGoLive');
-  const btnStopLive = document.getElementById('btnStopLive');
-  const liveControls = document.getElementById('liveControls');
-  const shareTwitter = document.getElementById('shareTwitter');
-  const shareFacebook = document.getElementById('shareFacebook');
-  const shareWhatsapp = document.getElementById('shareWhatsapp');
-  const shareCopy = document.getElementById('shareCopy');
-  const liveStatus = document.getElementById('liveStatus');
-  const viewerCountEl = document.getElementById('viewerCount');
-  const messagesEl = document.getElementById('messages');
-  const msgText = document.getElementById('msgText');
-  const sendMsg = document.getElementById('sendMsg');
-
-  // Auth UI elements
-  const btnSignIn = document.getElementById('btnSignIn');
-  const btnSignOut = document.getElementById('btnSignOut');
-  const userEmailEl = document.getElementById('userEmail');
-  const authModal = document.getElementById('authModal');
-  const authEmail = document.getElementById('authEmail');
-  const authPassword = document.getElementById('authPassword');
-  const authCancel = document.getElementById('authCancel');
-  const authSubmit = document.getElementById('authSubmit');
-
-  // Live state
-  let mediaRecorder = null;
-  let mediaStream = null;
-  let ws = null;
-  let isBroadcasting = false;
-  let previewStream = null;
-  let currentSessionId = null; // Firestore doc id for the live session
-
-  // When the page opens, sign in anonymously (so viewers can write ephemeral chat)
-  // but still allow broadcasters to sign in with email/password
-  try {
-    await signInAnonymously(auth);
-    console.log('Signed in anonymously as viewer');
-  } catch (e) {
-    console.warn('Anonymous sign-in failed:', e);
-  }
-
-  // Auth flow (simple)
-  btnSignIn.addEventListener('click', () => {
-    authModal.classList.remove('hidden');
-  });
-  authCancel.addEventListener('click', () => {
-    authModal.classList.add('hidden');
-  });
-  authSubmit.addEventListener('click', async () => {
-    const email = authEmail.value.trim();
-    const pass = authPassword.value;
-    if (!email || !pass) return alert('Provide email and password');
-    // Try sign-in, otherwise create
-    try {
-      await signInWithEmailAndPassword(auth, email, pass);
-      authModal.classList.add('hidden');
-    } catch (err) {
-      if (err.code && err.code.includes('user-not-found')) {
-        try {
-          await createUserWithEmailAndPassword(auth, email, pass);
-          authModal.classList.add('hidden');
-        } catch (e2) {
-          alert('Create user failed: ' + e2.message);
-        }
-      } else {
-        alert('Sign in failed: ' + err.message);
-      }
-    }
-  });
-
-  btnSignOut.addEventListener('click', async () => {
-    await signOut(auth);
-  });
-
-  onAuthStateChanged(auth, (user) => {
-    if (user && !user.isAnonymous) {
-      userEmailEl.textContent = user.email;
-      userEmailEl.classList.remove('hidden');
-      btnSignIn.classList.add('hidden');
-      btnSignOut.classList.remove('hidden');
-    } else {
-      userEmailEl.classList.add('hidden');
-      btnSignIn.classList.remove('hidden');
-      btnSignOut.classList.add('hidden');
-    }
-  });
-
-  // Utility: update share links (uses page url)
-  function updateShareLinks() {
-    const viewerUrl = window.location.href.split('#')[0];
-    shareTwitter.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent("I'm live on CHOICE TV!")}&url=${encodeURIComponent(viewerUrl)}`;
-    shareFacebook.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(viewerUrl)}`;
-    shareWhatsapp.href = `https://wa.me/?text=${encodeURIComponent("I'm live on CHOICE TV: " + viewerUrl)}`;
-    shareCopy.addEventListener('click', async (ev) => {
-      ev.preventDefault();
-      try { await navigator.clipboard.writeText(viewerUrl); alert('Link copied'); } catch (e) { alert('Copy failed'); }
-    });
-  }
-  updateShareLinks();
-
-  // Chat — Firestore
-  const chatCol = collection(db, 'live_chat'); // top-level collection; messages have sessionId field
-  function appendMessageToUI(msg) {
-    const el = document.createElement('div');
-    el.style.padding = '6px';
-    el.style.borderBottom = '1px solid #f0f0f0';
-    el.innerHTML = `<strong>${escapeHtml(msg.name || 'Anon')}:</strong> <span>${escapeHtml(msg.text)}</span> <div class="small" style="color:#888">${msg.ts ? new Date(msg.ts.seconds*1000).toLocaleString() : ''}</div>`;
-    messagesEl.appendChild(el);
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-  }
-
-  // Keep a listener for last 100 messages
-  const q = query(chatCol, orderBy('ts', 'desc'), limit(100));
-  onSnapshot(q, (snap) => {
-    // simple re-render in chronological order
-    const docs = [];
-    snap.forEach(d => docs.push({ id: d.id, ...d.data() }));
-    messagesEl.innerHTML = '';
-    docs.reverse().forEach(m => appendMessageToUI(m));
-  }, (err) => {
-    console.warn('chat onSnapshot error', err);
-  });
-
-  // send chat
-  sendMsg.addEventListener('click', sendChatMessage);
-  msgText.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendChatMessage(); });
-  async function sendChatMessage() {
-    const text = msgText.value.trim();
-    if (!text) return;
-    const user = auth.currentUser;
-    const name = (user && !user.isAnonymous) ? user.email : 'Viewer';
-    try {
-      await addDoc(chatCol, {
-        sessionId: currentSessionId || null,
-        name,
-        text,
-        ts: serverTimestamp()
-      });
-      msgText.value = '';
-    } catch (e) {
-      console.error('sendChat error', e);
-      alert('Send failed');
-    }
-  }
-
-  // Viewer counter: store in Firestore sessions collection
-  async function incrementViewerCount(sessionId, delta = 1) {
-    if (!sessionId) return;
-    const docRef = doc(db, 'sessions', sessionId);
-    try {
-      await runTransaction(db, async (t) => {
-        const snap = await t.get(docRef);
-        if (!snap.exists()) {
-          t.set(docRef, { viewers: delta, startedAt: serverTimestamp() }, { merge: true });
-        } else {
-          const cur = snap.data().viewers || 0;
-          t.update(docRef, { viewers: cur + delta });
-        }
-      });
-    } catch (e) {
-      console.warn('viewer increment failed', e);
-    }
-  }
-  // Live listener to update viewer count in UI
-  function watchSession(sessionId) {
-    if (!sessionId) return;
-    const sessionDoc = doc(db, 'sessions', sessionId);
-    onSnapshot(sessionDoc, (snap) => {
-      if (!snap.exists()) {
-        viewerCountEl.textContent = 'Viewers: 0';
-        return;
-      }
-      const data = snap.data();
-      viewerCountEl.textContent = 'Viewers: ' + (data.viewers || 0);
-    });
-  }
-
-  // Helper: escape text for UI
-  function escapeHtml(unsafe) {
-    if (!unsafe) return '';
-    return unsafe.replace(/[&<"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '"': '&quot;', "'": '&#039;' }[m]));
-  }
-
-  // --- Live broadcasting logic (keeps your WebSocket relay pattern) ---
-  // NOTE: You must provide a relay WebSocket endpoint for ingest; below is generic.
-  btnGoLive.addEventListener('click', async () => {
-    // Only signed-in non-anonymous users can go live (simple check)
-    const user = auth.currentUser;
-    if (!user || user.isAnonymous) {
-      if (!confirm('You must sign in as a broadcaster to go live. Open sign-in?')) {
-        return;
-      }
-      authModal.classList.remove('hidden');
-      return;
-    }
-
-    try {
-      // get camera + mic
-      mediaStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
-      localPreview.srcObject = mediaStream;
-      previewStream = mediaStream;
-      // create a new Firestore session doc to represent this live session
-      const sessionRef = await addDoc(collection(db, 'sessions'), {
-        broadcaster: user.uid,
-        broadcasterEmail: user.email || null,
-        status: 'starting',
-        createdAt: serverTimestamp(),
-        viewers: 0
-      });
-      currentSessionId = sessionRef.id;
-      watchSession(currentSessionId);
-
-      // connect to the relay WebSocket (you need to replace with your real relay)
-      // For now we open a placeholder ws and send metadata — your relay must know how to accept recorded blobs
-      const RELAY_WS_URL = (window.RELAY_WS_URL || 'wss://your-relay.example/ws'); // replace with actual
-      ws = new WebSocket(RELAY_WS_URL);
-
-      ws.onopen = () => {
-        console.log('Relay connected');
-        liveStatus.textContent = 'Relay connected — publishing...';
-        // let the relay know we are starting a session
-        ws.send(JSON.stringify({ action: 'start', sessionId: currentSessionId, broadcaster: user.uid }));
-      };
-
-      // MediaRecorder to capture and send chunks to relay
-      mediaRecorder = new MediaRecorder(mediaStream, { mimeType: 'video/webm; codecs=vp8,opus' });
-      const chunks = [];
-      mediaRecorder.ondataavailable = async (ev) => {
-        if (ev.data && ev.data.size > 0) {
-          // Send binary blob to websocket if open
-          try {
-            if (ws && ws.readyState === WebSocket.OPEN) {
-              // send blob directly — relay must accept binary frames
-              ws.send(ev.data);
-            }
-          } catch (err) {
-            console.warn('send chunk failed', err);
-          }
-          // keep chunks for local upload on stop
-          chunks.push(ev.data);
-        }
-      };
-
-      mediaRecorder.onstart = () => {
-        isBroadcasting = true;
-        btnGoLive.style.display = 'none';
-        btnStopLive.style.display = 'inline-block';
-        liveControls.style.display = 'block';
-        // Update session doc
-        setDoc(doc(db, 'sessions', currentSessionId), { status: 'live', startedAt: serverTimestamp() }, { merge: true });
-        updateShareLinks();
-      };
-
-      mediaRecorder.onstop = async () => {
-        isBroadcasting = false;
-        liveStatus.textContent = 'Broadcast stopped (uploading recording...)';
-        // assemble recording
-        const blob = new Blob(chunks, { type: 'video/webm' });
-        // upload to Firebase Storage
-        try {
-          const uploadPath = `recordings/${currentSessionId}/${Date.now()}.webm`;
-          const sRef = storageRef(storage, uploadPath);
-          await uploadBytes(sRef, blob);
-          const url = await getDownloadURL(sRef);
-          // write recording metadata to Firestore
-          await addDoc(collection(db, 'recordings'), {
-            sessionId: currentSessionId,
-            storagePath: uploadPath,
-            url,
-            uploadedAt: serverTimestamp(),
-            broadcaster: user.uid
-          });
-          liveStatus.textContent = 'Recording uploaded';
-        } catch (e) {
-          console.error('upload failed', e);
-          liveStatus.textContent = 'Recording upload failed';
-        }
-
-        // notify relay that we stopped
-        try { if (ws && ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify({ action: 'stop', sessionId: currentSessionId })); } catch(e){}
-        // update session status
-        try { await updateDoc(doc(db,'sessions',currentSessionId), { status: 'ended', endedAt: serverTimestamp() }); } catch(e){}
-        // reset
-        stopLocalBroadcast();
-      };
-
-      // start recording with 3s timeslices (adjust if needed)
-      mediaRecorder.start(3000);
-
-      // Example: when relay sends HLS url back, update session doc
-      ws.onmessage = async (msg) => {
-        try {
-          const text = (typeof msg.data === 'string') ? msg.data : null;
-          if (text) {
-            const json = JSON.parse(text);
-            if (json.type === 'hls' && json.url) {
-              liveStatus.textContent = 'Relay published HLS: ' + json.url;
-              // write to session doc
-              await updateDoc(doc(db, 'sessions', currentSessionId), { hlsUrl: json.url, status: 'live' });
-            } else if (json.type === 'status') {
-              liveStatus.textContent = 'Relay: ' + json.msg;
-            }
-          }
-        } catch (err) {
-          console.warn('ws message parse', err);
-        }
-      };
-
-      ws.onerror = (e) => { console.error('WebSocket error', e); liveStatus.textContent = 'Relay connection error'; };
-      ws.onclose = () => {
-        liveStatus.textContent = 'Relay disconnected';
-        // if disconnected unexpectedly, stop local broadcast & mark session ended
-        if (isBroadcasting) {
-          stopLocalBroadcast();
-          updateDoc(doc(db,'sessions',currentSessionId)).catch(()=>{});
-        }
-      };
-
-    } catch (err) {
-      console.error('Live start error', err);
-      alert('Live start error: ' + (err.message || err));
-      stopLocalBroadcast();
-    }
-  });
-
-  btnStopLive.addEventListener('click', async () => {
-    // stop recording; onstop will handle upload and cleanup
-    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-      mediaRecorder.stop();
-    }
-    try {
-      if (ws && ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify({ action: 'stop', sessionId: currentSessionId }));
-      if (ws) ws.close();
-    } catch (e) {}
-    liveStatus.textContent = 'Broadcast stopped';
-    isBroadcasting = false;
-    btnGoLive.style.display = 'inline-block';
-    btnStopLive.style.display = 'none';
-  });
-
-  // Helper: stop everything and clean local objects
-  function stopLocalBroadcast() {
-    try {
-      if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
-    } catch (e) { /* ignore */ }
-    mediaRecorder = null;
-    try {
-      if (mediaStream) {
-        mediaStream.getTracks().forEach(t => t.stop());
-        mediaStream = null;
-        localPreview.srcObject = null;
-        previewStream = null;
-      }
-    } catch (e) { console.warn(e); }
-    if (ws && ws.readyState !== WebSocket.CLOSED) {
-      try { ws.close(); } catch(e){}
-    }
-    ws = null;
-    isBroadcasting = false;
-    btnGoLive.style.display = 'inline-block';
-    btnStopLive.style.display = 'none';
-    liveControls.style.display = 'none';
-  }
-
-  // When a viewer opens the page, if a live session exists, increment viewer count once and watch the doc
-  // We'll query for the most recent session with status 'live'
-  async function watchLatestLiveSession() {
-    try {
-      // Simple approach: listen to sessions collection for 'live' sessions
-      const sessionsCol = collection(db, 'sessions');
-      // We'll snapshot and choose latest live
-      onSnapshot(sessionsCol, (snap) => {
-        let latest = null;
-        snap.forEach(docSnap => {
-          const data = docSnap.data();
-          if (data && data.status === 'live') {
-            // pick the newest by createdAt
-            if (!latest || (data.createdAt && data.createdAt.seconds > (latest.createdAt?.seconds || 0))) {
-              latest = { id: docSnap.id, ...data };
-            }
-          }
-        });
-        if (latest) {
-          // set currentSessionId for chat / viewers
-          if (currentSessionId !== latest.id) {
-            currentSessionId = latest.id;
-            // increment viewer count (simple +1)
-            incrementViewerCount(currentSessionId, 1);
-            // we should decrement when leaving — attempt best-effort
-            window.addEventListener('beforeunload', () => {
-              incrementViewerCount(currentSessionId, -1);
-            });
-            watchSession(currentSessionId);
-          }
-          liveStatus.textContent = 'Live — session: ' + latest.id;
-          liveControls.style.display = 'block';
-        } else {
-          liveStatus.textContent = 'Offline';
-          currentSessionId = null;
-          viewerCountEl.textContent = 'Viewers: 0';
-        }
-      });
-    } catch (e) {
-      console.warn('watchLatestLiveSession failed', e);
-    }
-  }
-  watchLatestLiveSession();
-
-  // small utility to update the player to watch an HLS URL (if you embed a player)
-  function playUrl(url) {
-    // If you use HLS.js or native playback, implement here. For demo we just show status.
-    liveStatus.textContent = 'Play: ' + url;
-  }
-
-  // Clean up on unload
-  window.addEventListener('beforeunload', () => {
-    try { if (currentSessionId) incrementViewerCount(currentSessionId, -1); } catch(e){}
-    try { stopLocalBroadcast(); } catch(e){}
-  });
-
-  // End of module
-  </script>
 </body>
 </html>
